@@ -1,8 +1,3 @@
-N = int(input())
-answer = 1
-if N == 0:
-  print(1)
-else:
-  for i in range(N,0,-1):
-    answer = answer * i
-  print(answer)
+N = 1
+for i in range(int(input()),0,-1):N=N*i
+print(N)
