@@ -110,5 +110,3 @@ def move(y, x):
         continue
       
 move(x, y)
-for i in result:
-  print(i)
