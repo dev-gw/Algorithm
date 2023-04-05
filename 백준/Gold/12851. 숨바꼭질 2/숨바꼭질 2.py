@@ -5,12 +5,12 @@
 3. 자료구조
 '''
 import sys
-from collections import deque
+from collections import deque, defaultdict
 input = sys.stdin.readline
 
 n, k = map(int, input().split())
 visited = [False] * 100001
-result = []
+result = defaultdict(int)
 
 def bfs():
   q = deque()
@@ -20,7 +20,7 @@ def bfs():
     if visited[cur] == False:
       visited[cur] = True
     if cur == k:
-        result.append((cur, count))
+        result[count] += 1
     else:
       if 0<=cur+1<=100000 and visited[cur+1] == False:
         q.append((cur+1, count+1))
@@ -31,11 +31,7 @@ def bfs():
 
 bfs()
 answer = int(1e8)
-cnt = 0
-for each in result:
-  answer = min(answer, each[1])
-for each in result:
-  if each[1] == answer:
-    cnt += 1
+for each in result.keys():
+  answer = min(answer, each)
 print(answer)
-print(cnt)
+print(result[answer])
