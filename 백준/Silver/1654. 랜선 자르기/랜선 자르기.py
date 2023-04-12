@@ -17,6 +17,7 @@ arr = [int(input()) for _ in range(k)]
 # 이분탐색
 left = 1
 right = max(arr)
+answer = -1
 
 while left <= right:
   # 새로운 값
@@ -31,8 +32,9 @@ while left <= right:
   # 필요한 개수보다 더 만들어지는 경우
   if count >= n:
     left = mid + 1
+    answer = mid
   # 필요한 개수가 부족한 경우
   else:
     right = mid - 1
 
-print(right)
+print(answer)
